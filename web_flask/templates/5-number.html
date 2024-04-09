@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Display</title>
+    <script>
+      function displayNumber() {
+        const params = new URLSearchParams(window.location.search);
+        const n = params.get("n");
+        
+        if (Number.isInteger(Number(n))) {
+          document.getElementById("numberDisplay").innerHTML = `Number: ${n}`;
+        } else {
+          document.body.innerHTML = `<h1>Invalid Input</h1>`;
+        }
+      }
+    </script>
+  </head>
+  <body onload="displayNumber()">
+    <h1 id="numberDisplay"></h1>
+  </body>
+</html>
