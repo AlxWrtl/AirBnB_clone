@@ -15,7 +15,7 @@ def hello_hbnb():
     """Define the root route and return a greeting message.
 
     Returns:
-        str: A greeting message 'Hello HBNB!'.
+        str: A greeting message “Hello HBNB!”.
     """
     return 'Hello HBNB!'
 
