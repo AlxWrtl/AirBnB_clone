@@ -2,9 +2,10 @@
 """Module for setting up a simple Flask web application.
 
 This module utilizes the Flask library to create a basic web application.
-It defines routes to return greeting messages, a specific text, and dynamic
-content based on URL parameters. The application is configured to run on any
-interface ('0.0.0.0') and listens on port 5000.
+It defines routes to return greeting messages, a specific text, dynamic
+content based on URL parameters, and a default value for a dynamic route.
+The application is configured to run on any interface ('0.0.0.0') and listens
+on port 5000.
 """
 
 from flask import Flask
@@ -48,6 +49,18 @@ def text_to_display(text):
 @app.route('/python/', defaults={'text': 'is_cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def text_to_python(text):
+    """Return a custom message with dynamic text from the URL or a default.
+
+    This route demonstrates the use of a default value if no text is
+    provided in the URL. It replaces underscores with spaces in the text.
+
+    Args:
+        text (str): The text to be included in the message, with underscores
+        replaced by spaces. Defaults to "is_cool".
+
+    Returns:
+        str: The formatted message "Python " followed by the processed text.
+    """
     return "Python {}".format(text.replace("_", " "))
 
 
