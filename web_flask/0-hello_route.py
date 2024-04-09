@@ -17,8 +17,7 @@ def hello_hbnb():
     Returns:
         str: A greeting message “Hello HBNB!”.
     """
-    return 'Hello HBNB!'
-
+    return "Hello HBNB!"
 
 if __name__ == "__main__":
     """Run the Flask web application on host 0.0.0.0 and port 5000."""
