@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Module for setting up a simple Flask web application.
 
 This module utilizes the Flask library to create a basic web application.
