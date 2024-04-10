@@ -88,7 +88,7 @@ def number_template_to_number(n):
     Returns:
         Rendered HTML page displaying "Number: n".
     """
-    return render_template('number_template.html', number=n)
+    return render_template('5-number.html', number=n)
 
 
 if __name__ == "__main__":
