@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Start a Flask web app"""
+"""Start a Flask web application"""
 
 from flask import Flask, render_template
 from models import storage
@@ -10,20 +10,21 @@ app = Flask(__name__)
 
 @app.teardown_appcontext
 def shutdown(exception):
-    """close the storage after each requests"""
+    """Close the storage after each request"""
     storage.close()
 
 
 @app.route('/states', strict_slashes=False)
 def states():
-    """list all the states"""
-    all_states = storage.all(State)
-    return render_template('7-states_list.html', all_states=all_states)
+    """List all the states sorted by name"""
+    all_states = sorted(storage.all(State).values(),
+                        key=lambda state: state.name)
+    return render_template('9-states.html', all_states=all_states)
 
 
 @app.route('/states/<id>', strict_slashes=False)
 def states_id(id):
-    """list states with id"""
+    """Display a specific state and its cities sorted by name if found"""
     all_states = storage.all(State).values()
     for state in all_states:
         if state.id == id:
@@ -32,5 +33,4 @@ def states_id(id):
 
 
 if __name__ == '__main__':
-    """ Main Function """
     app.run(host='0.0.0.0', port=5000)
