@@ -42,8 +42,8 @@ def teardown(exception):
     potential memory leaks.
 
     Args:
-        exception (Exception): The exception that was raised during the request,
-                               if any. This is handled by Flask internally.
+        exception (Exception): The exception that was raised during the
+        request, if any. This is handled by Flask internally.
     """
     storage.close()
 
@@ -51,7 +51,8 @@ def teardown(exception):
 if __name__ == '__main__':
     """Run the Flask application on host 0.0.0.0 and port 5000.
 
-    This configuration allows the application to be accessible over the network,
+    This configuration allows the application to be accessible over the
+    network,
     making it possible for users to connect to the app from any device within
     the network.
     """
